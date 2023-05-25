@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/MarvelComics_JS/assets/Marvel_Logo-b56925b3.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Heroes-JS</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/modern-normalize@1.1.0/modern-normalize.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&family=Roboto:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    
+    <script type="module" crossorigin src="/MarvelComics_JS/assets/index-81e72912.js"></script>
+    <link rel="modulepreload" crossorigin href="/MarvelComics_JS/assets/header-ff911c68.js">
+    <link rel="stylesheet" href="/MarvelComics_JS/assets/header-c716b13d.css">
+  </head>
+  <body>
+    <header class="header">
+  <div class="header-items container">
+    <a href="./index.html">
+      <svg class="logo-svg">
+        <use href="/MarvelComics_JS/assets/symbol-defs-9f2d0122.svg#icon-logo"></use>
+      </svg>
+    </a>
+    <!--     <a href="../index.html"><img src="" alt="MAIN_LOGO" /></a> -->
+
+    <form class="header-form" id="search-form">
+      <button class="header-btn" type="submit">
+        <svg class="header-icon" width="18px" height="18px">
+          <use href="/MarvelComics_JS/assets/icons-bdbdc454.svg#search"></use>
+        </svg>
+      </button>
+      <input
+        type="query"
+        name="searchQuery"
+        class="header-input"
+        placeholder="SEARCH"
+        autocomplete="on"
+      />
+    </form>
+  </div>
+</header>
+
+    <main>
+      <section class="hero-section" data-mod="blue">
+  <div class="hero-section-wrap container">
+    <div class="hero-section-text-card">
+      <p class="text-card-subtitle">Web-based platform</p>
+      <h1 class="text-card-title">Marvelous Adventures</h1>
+      <p class="text-card-txt">
+        is a web-based platform that provides an immersive experience for users
+        to explore and discover a vast collection of Marvel characters and
+        comics. Start exploring the Marvelous Adventures now by visiting our
+        Characters and Comics sections and discover your new favorites today.
+      </p>
+      <a href="./page-2.html">
+        <button
+          class="hero-all-characters-btn hero-all-characters-btn-blue"
+          type="button"
+        >
+          All Characters
+        </button>
+      </a>
+    </div>
+    <ul class="hero-pagination">
+      <li class="hero-pagination-item active" data-index="0"></li>
+      <li class="hero-pagination-item" data-index="1"></li>
+      <li class="hero-pagination-item" data-index="2"></li>
+    </ul>
+    <div class="hero-slide" data-mod="blue">
+      <picture>
+        <source
+          srcset="/MarvelComics_JS/assets/black-panther-desktop-min-b117e3b1.jpg 1x, /MarvelComics_JS/assets/black-panther@2x-desctop-min-86474bb5.jpg 2x"
+          media="(min-width: 1440px)"
+        />
+        <source
+          srcset="/MarvelComics_JS/assets/black-panther-min-6ff9d6e8.jpg 1x, /MarvelComics_JS/assets/black-panther@2x-min-79142e03.jpg 2x"
+          media="(min-width: 768px)"
+        />
+        <source
+          srcset="/MarvelComics_JS/assets/black-panther-min-14e1886d.jpg 1x, /MarvelComics_JS/assets/black-panther@2x-min-5ebb0a37.jpg 2x"
+          media="(max-width: 767px)"
+        />
+
+        <img
+          src="/MarvelComics_JS/assets/black-panther-desktop-min-b117e3b1.jpg"
+          class="image-card-main-img"
+          alt="Black Panther"
+          width="352"
+        />
+      </picture>
+      <div class="container-secondary-card">
+        <div class="image-card-secondary-img-wrap">
+          <picture>
+            <source
+              srcset="/MarvelComics_JS/assets/black-panther-gallery-desktop-min-b89b6d96.jpg 1x, /MarvelComics_JS/assets/black-panther-gallery@2x-desktop-min-59971965.jpg 2x"
+              media="(min-width: 1440px)"
+            />
+            <source
+              srcset="/MarvelComics_JS/assets/black-panther-gallery-min-b03969af.jpg 1x, /MarvelComics_JS/assets/black-panther@2x-gallery-min-8f1bf824.jpg 2x"
+              media="(min-width: 768px)"
+            />
+            <source
+              srcset="/MarvelComics_JS/assets/black-panther-gallery-min-53a755d9.jpg 1x, /MarvelComics_JS/assets/black-panther-gallery@2x-min-998ca0be.jpg 2x"
+              media="(max-width: 767px)"
+            />
+
+            <img
+              src="/MarvelComics_JS/assets/black-panther-gallery-desktop-min-b89b6d96.jpg"
+              class="image-card-secondary-img"
+              alt="Black Panther"
+              width="352"
+            />
+          </picture>
+          <div class="decorate-ellipse">
+            <h2 class="decorate-ellipse-title">Black Panther</h2>
+          </div>
+          <a href="" class="image-card-link">
+            <svg class="arrow" width="32" height="32">
+              <use href="/MarvelComics_JS/assets/symbol-defs-9f2d0122.svg#icon-arrow"></use>
+            </svg>
+          </a>
+        </div>
+
+        <span class="decorate-line"></span>
+        <div class="image-card-character-description">
+          <p class="image-card-title">Characters</p>
+          <p class="image-card-txt">
+            T’Challa is the king of the secretive and highly advanced African
+            nation of Wakanda - as well as the powerful warrior known as the
+            Black Panther.
+          </p>
+        </div>
+        <span class="secondary-card-gradient"></span>
+      </div>
+    </div>
+    <div class="hero-slide visually-hidden" data-mod="green">
+      <picture>
+        <source
+          srcset="/MarvelComics_JS/assets/hulk-desktop-min-9fb9976c.jpg 1x, /MarvelComics_JS/assets/hulk@2x-desktop-min-a80408eb.jpg 2x"
+          media="(min-width: 1440px)"
+        />
+        <source
+          srcset="/MarvelComics_JS/assets/hulk-min-288bd561.jpg 1x, /MarvelComics_JS/assets/hulk@2x-min-7dd04bff.jpg 2x"
+          media="(min-width: 768px)"
+        />
+        <source
+          srcset="/MarvelComics_JS/assets/hulk-min-288bd561.jpg 1x, /MarvelComics_JS/assets/hulk@2x-min-7dd04bff.jpg 2x"
+          media="(max-width: 767px)"
+        />
+
+        <img
+          src="/MarvelComics_JS/assets/hulk-desktop-min-9fb9976c.jpg"
+          class="image-card-main-img"
+          alt="Black Panther"
+          width="352"
+        />
+      </picture>
+      <div class="container-secondary-card">
+        <div class="image-card-secondary-img-wrap">
+          <picture>
+            <source
+              srcset="/MarvelComics_JS/assets/hulk-gallery-desktop-min-cf1b7175.jpg 1x, /MarvelComics_JS/assets/hulk-gallery@2x-desktop-min-ad80e115.jpg 2x"
+              media="(min-width: 1440px)"
+            />
+            <source
+              srcset="/MarvelComics_JS/assets/hulk-gallery-min-b4c58f21.jpg 1x, /MarvelComics_JS/assets/hulk-gallery@2x-min-474f32ae.jpg 2x"
+              media="(min-width: 768px)"
+            />
+            <source
+              srcset="/MarvelComics_JS/assets/hulk-gallery-min-b4c58f21.jpg 1x, /MarvelComics_JS/assets/hulk-gallery@2x-min-474f32ae.jpg 2x"
+              media="(max-width: 767px)"
+            />
+
+            <img
+              src="/MarvelComics_JS/assets/hulk-gallery-desktop-min-cf1b7175.jpg"
+              class="image-card-secondary-img"
+              alt="Black Panther"
+              width="352"
+            />
+          </picture>
+          <div class="decorate-ellipse">
+            <h2 class="decorate-ellipse-title">hULK</h2>
+          </div>
+          <a href="#" class="image-card-link">
+            <svg class="arrow" width="32" height="32">
+              <use href="/MarvelComics_JS/assets/symbol-defs-9f2d0122.svg#icon-arrow"></use>
+            </svg>
+          </a>
+        </div>
+
+        <span class="decorate-line"></span>
+        <div class="image-card-character-description">
+          <p class="image-card-title">Characters</p>
+          <p class="image-card-txt">
+            Exposed to heavy doses of gamma radiation, scientist Bruce Banner
+            transforms into the mean, green rage machine called the Hulk.
+          </p>
+        </div>
+        <span class="secondary-card-gradient"></span>
+      </div>
+    </div>
+    <div class="hero-slide visually-hidden" data-mod="bordo">
+      <picture>
+        <source
+          srcset="/MarvelComics_JS/assets/spiderman-desktop-min-c1443d53.jpg 1x, /MarvelComics_JS/assets/spiderman@2x-desktop-min-b011557c.jpg 2x"
+          media="(min-width: 1440px)"
+        />
+        <source
+          srcset="/MarvelComics_JS/assets/spiderman-min-dcb1b9ff.jpg 1x, /MarvelComics_JS/assets/spiderman@2x-min-8b061ea0.jpg 2x"
+          media="(min-width: 768px)"
+        />
+        <source
+          srcset="/MarvelComics_JS/assets/spiderman-min-dcb1b9ff.jpg 1x, /MarvelComics_JS/assets/spiderman@2x-min-8b061ea0.jpg 2x"
+          media="(max-width: 767px)"
+        />
+
+        <img
+          src="/MarvelComics_JS/assets/spiderman-desktop-min-c1443d53.jpg"
+          class="image-card-main-img"
+          alt="Black Panther"
+          width="352"
+        />
+      </picture>
+      <div class="container-secondary-card">
+        <div class="image-card-secondary-img-wrap">
+          <picture>
+            <source
+              srcset="/MarvelComics_JS/assets/spiderman-gallery-desktop-min-3edb18bb.jpg 1x, /MarvelComics_JS/assets/spiderman-gallery@2x-desktop-min-f43258c3.jpg 2x"
+              media="(min-width: 1440px)"
+            />
+            <source
+              srcset="/MarvelComics_JS/assets/spiderman-gallery-min-7067bbda.jpg 1x, /MarvelComics_JS/assets/spiderman@2x-gallery-min-48934546.jpg 2x"
+              media="(min-width: 768px)"
+            />
+            <source
+              srcset="/MarvelComics_JS/assets/spiderman-gallery-min-7067bbda.jpg 1x, /MarvelComics_JS/assets/spiderman@2x-gallery-min-48934546.jpg 2x"
+              media="(max-width: 767px)"
+            />
+
+            <img
+              src="/MarvelComics_JS/assets/black-panther-gallery-desktop-min-b89b6d96.jpg"
+              class="image-card-secondary-img"
+              alt="Black Panther"
+              width="352"
+            />
+          </picture>
+          <div class="decorate-ellipse">
+            <h2 class="decorate-ellipse-title">Spider man</h2>
+          </div>
+          <a href="#" class="image-card-link">
+            <svg class="arrow" width="32" height="32">
+              <use href="/MarvelComics_JS/assets/symbol-defs-9f2d0122.svg#icon-arrow"></use>
+            </svg>
+          </a>
+        </div>
+
+        <span class="decorate-line"></span>
+        <div class="image-card-character-description">
+          <p class="image-card-title">Characters</p>
+          <p class="image-card-txt">
+            With amazing spider-like abilities, teenage science whiz Peter
+            Parker fights crime and dreams of becoming an Avenger as Spider-Man.
+          </p>
+        </div>
+        <span class="secondary-card-gradient"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <section class="random">
+  <div class="container">
+    <h2 class="random-text">Random characters</h2>
+    <div class="form-random">
+      <div class="random-info">
+        <picture>
+          <div class="random-img random-bacground" data-id=""></div>
+        </picture>
+        <ul class="random-list list"></ul>
+      </div>
+
+      <a href="./page-2.html" class="allCharactersBtn">all Characters</a>
+    </div>
+  </div>
+</section>
+
+<!-- //============================== -->
+
+    </main>
+    <footer id="footer" class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <ul class="footer-list">
+        <li>
+          <a href="./index.html" class="logo" aria-label="link to home page">
+            <svg class="logo-svg">
+              <use href="/MarvelComics_JS/assets/symbol-defs-9f2d0122.svg#icon-logo"></use>
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a
+            href="./page-2.html"
+            class="character-link"
+            aria-label="link to Characters"
+            >Characters</a
+          >
+        </li>
+        <ul class="icons-list">
+          <li>
+            <a
+              class="footer-icon-item-link"
+              aria-label="Open facebook"
+              href="https://www.facebook.com/Marvel/"
+              rel="noopener noreferer"
+              target="_blank"
+            >
+              <svg class="footer-icon">
+                <use href="/MarvelComics_JS/assets/symbol-defs-9f2d0122.svg#icon-facebook"></use>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a
+              class="footer-icon-item-link"
+              aria-label="Open instagram"
+              href="https://www.instagram.com/marvel"
+              rel="noopener noreferer"
+              target="_blank"
+            >
+              <svg class="footer-icon" width="14" height="14">
+                <use href="/MarvelComics_JS/assets/symbol-defs-9f2d0122.svg#icon-instagram"></use>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a
+              class="footer-icon-item-link"
+              aria-label="Open twitter"
+              href="https://twitter.com/marvel"
+              rel="noopener noreferer"
+              target="_blank"
+              ><svg class="footer-icon" width="14" height="14">
+                <use href="/MarvelComics_JS/assets/symbol-defs-9f2d0122.svg#icon-twitter"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <a
+      href="https://privacy.thewaltdisneycompany.com/en/current-privacy-policy/"
+      class="policy-link"
+      aria-label="link to Private Policy"
+      >Privacy Policy Public Offering Agreement</a
+    >
+  </div>
+</footer>
+
+
+    
+  </body>
+</html>
