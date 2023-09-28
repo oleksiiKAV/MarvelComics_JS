@@ -1,4 +1,4 @@
-import { Locator, Page , expect} from '@playwright/test'
+import { Locator,  Page , expect} from '@playwright/test'
 
 import{charasterPageTitle} from "./consts"
 
@@ -16,7 +16,7 @@ export class CharactersPage {
     this.logo = this.header.locator('.logo-svg')
     this.searchBox = page.locator('#searchQuery')
     this.backHomeButton = page.locator('.back-home-link')
-    this.gallery = page.locator('#paginated-list')
+    this.gallery = page.locator('.gallery-item')
   }
 
   async visit() {

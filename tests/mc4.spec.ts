@@ -26,7 +26,7 @@ test.describe('MC4 Header', () => {
       await homePage.header.screenshot({animations: 'disabled', path: 'header.png' })
       await homePage.clickOnAllCharastersButton();
       charactersPage.VerifyPageIsOpened
-      expect(await charactersPage!.header.screenshot()).toMatchSnapshot('header.png')
+      expect(await charactersPage!.header.screenshot({animations: 'disabled'})).toMatchSnapshot('header.png')
     });
 
   test("MC4.2 The application's header shall be consistently visible on the screen at all times.", async ({ page }) => {
@@ -79,19 +79,26 @@ test.describe('MC4 Header', () => {
 
   });
 
-  test("MC4.7 When users click the search icon while in the search field, the application shall open the next page, displaying search results.", async ({ page }) => {
-     expect(homePage.searchIcon).toBeVisible();
-     await homePage.searchFor('iro')
-    await page.waitForTimeout(4000)
-
-    const datalistOptions = await page.evaluate(() => {
-      const options = document.querySelectorAll<HTMLOptionElement>('#search-results option');
-      return Array.from(options).map(option => option.value);
-    });
-    homePage.searchIcon.click;
-    // console.log(datalistOptions); 
-    charactersPage.VerifyPageIsOpened;
-    expect(charactersPage.gallery.length()).toEqual(
-  });
+  // test.only("MC4.8 When users click the search icon while in the search field, the application shall open the next page, displaying search results.", async ({ page }) => {
+     
+  //    await homePage.searchFor('iro')
+  //   await page.waitForTimeout(1000)
+    
+  //   const datalistOptions = await page.evaluate(() => {
+  //     const options = document.querySelectorAll<HTMLOptionElement>('#search-results option');
+  //     return Array.from(options).map(option => option.value);
+  //   });
+  //   homePage.searchIcon.click;
+  //   // console.log(datalistOptions); 
+  //   charactersPage.VerifyPageIsOpened;
+  //   // console.log(charactersPage.gallery)
+  //   await page.pause()
+  //   const items = await page.locator('.back-home-link').allTextContents();
+  //   // console.log(charactersPage.gallery.textContent())
+  //   console.log(items)
+  //   // const itemsCount = items.length;
+  //   // expect(itemsCount).toEqual(  16)
+      
+  // });
 
 })
