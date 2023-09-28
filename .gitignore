@@ -23,6 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 header.png
-playwright-report/index.html
-test-results/*.*
-
+playwright-report/
+test-results/
+tests/mc4.spec.ts-snapshots/

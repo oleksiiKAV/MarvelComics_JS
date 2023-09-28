@@ -1,9 +1,9 @@
 import { Locator,  Page , expect} from '@playwright/test'
-
+import { AbstractPage } from './AbstractPage'
 import{charasterPageTitle} from "./consts"
 
-export class CharactersPage {
-  readonly page: Page
+export class CharactersPage extends AbstractPage {
+  // readonly page: Page  
   readonly header: Locator
   readonly logo: Locator
   readonly searchBox: Locator
@@ -11,7 +11,8 @@ export class CharactersPage {
   readonly gallery: Locator
 
   constructor(page: Page) {
-    this.page = page
+    // this.page = page
+    super(page)
     this.header = page.locator('header')
     this.logo = this.header.locator('.logo-svg')
     this.searchBox = page.locator('#searchQuery')
@@ -24,10 +25,12 @@ export class CharactersPage {
   }
 
   async getTitle() {
+    
     return await this.page.title()
   }
   
   async clickOnBackHomeButton() {
+    console.log(await this.backHomeButton.textContent())
     await this.backHomeButton.click()
   }
 

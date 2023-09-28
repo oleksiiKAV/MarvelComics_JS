@@ -1,9 +1,9 @@
 import { Locator, Page, expect } from '@playwright/test'
-
+import { AbstractPage } from './AbstractPage'
 import{homePageTitle} from "./consts"
 
-export class HomePage {
-  readonly page: Page
+export class HomePage  extends AbstractPage {
+  // readonly page: Page
   readonly header: Locator
   readonly logo: Locator
   readonly searchBox: Locator
@@ -14,7 +14,8 @@ export class HomePage {
   readonly datalistElement: Locator
 
   constructor(page: Page) {
-    this.page = page
+    // this.page = page
+    super(page)
     this.header = page.locator('.header')
     this.searchBox = page.locator('.header-input')
     this.searchIcon = page.locator('.header-icon')
