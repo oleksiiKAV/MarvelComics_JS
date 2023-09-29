@@ -128,7 +128,7 @@ const form = document.querySelector('#search-form');
 form.addEventListener('submit', async event => {
   event.preventDefault();
   let searchQuery = searchInput.value.trim();
-  const url = `/page-2.html`;
+  const url = `./page-2.html`;
   if (
     window.location.href === window.location.origin + '/' ||
     window.location.pathname.includes('index.html')

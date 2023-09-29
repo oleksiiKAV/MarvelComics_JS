@@ -1,4 +1,4 @@
-import { Locator,  Page , expect} from '@playwright/test'
+import { ElementHandle, Locator,  Page , expect} from '@playwright/test'
 import { AbstractPage } from './AbstractPage'
 import{charasterPageTitle} from "./consts"
 
@@ -17,7 +17,7 @@ export class CharactersPage extends AbstractPage {
     this.logo = this.header.locator('.logo-svg')
     this.searchBox = page.locator('#searchQuery')
     this.backHomeButton = page.locator('.back-home-link')
-    this.gallery = page.locator('.gallery-item')
+    this.gallery = page.locator('.gallery')
   }
 
   async visit() {
@@ -50,4 +50,9 @@ export class CharactersPage extends AbstractPage {
     await this.searchBox.type(phrase)
     await this.page.keyboard.press('Enter')
   }
+
+  async getGalleryItems(): Promise<ElementHandle[]> {
+    return await this.page.$$('.gallery-item');
+  }
+
 }

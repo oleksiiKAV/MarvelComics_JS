@@ -21,14 +21,16 @@ test.describe('MC4 Header', () => {
   //   await context.close();
   // });
 
-  test.only("MC4.1 The application's header shall have a consistent appearance across both pages.",
+  test("MC4.1 The application's header shall have a consistent appearance across both pages.",
     async ({ page }) => {
       // await homePage.header.screenshot({animations: 'disabled', path: 'header.png' })
-      const header1 = homePage.header.innerHTML()
+      const header1 = await homePage.header.innerHTML()
+      
       await homePage.clickOnAllCharastersButton();
       charactersPage.VerifyPageIsOpened
       // await page.keyboard.press('Home');
-      const header2 = charactersPage.header.innerHTML()
+      const header2 = await charactersPage.header.innerHTML()
+      
       // expect(await charactersPage!.header.screenshot({animations: 'disabled'})).toMatchSnapshot('header.png')
       expect(header1).toEqual(header2)   
     });
@@ -82,23 +84,31 @@ test.describe('MC4 Header', () => {
     charactersPage.VerifyPageIsOpened;
 
   });
+ 
 
   test.only("MC4.8 When users click the search icon while in the search field, the application shall open the next page, displaying search results.", async ({ page }) => {
      
-     await homePage.searchFor('iro')
-    await page.waitForTimeout(4000)
+    page.keyboard.press('End');
     
-    const datalistOptions = await page.evaluate(() => {
-      const options = document.querySelectorAll<HTMLOptionElement>('#search-results option');
-      return Array.from(options).map(option => option.value);
-    });
-    page.keyboard.press('Enter');
-    // console.log(datalistOptions); 
-    charactersPage.VerifyPageIsOpened;
-    console.log(await charactersPage.searchBox.textContent())
-    console.log(await charactersPage.page.locator("#searchQuery").textContent())
-    // console.log(await charactersPage.page.locator(".hero-secondary-text").textContent())
-      
-  });
+    console.log(await page.locator(".hero-all-characters-btn").textContent())
+    await homePage.allCharastersButton.click()
+    page.keyboard.press('End');
+    
+    
+    page.keyboard.press('Home');
+    await page.pause()
+    page.keyboard.press('End');
+    // const galleryList = await page.$$('.gallery-item');
+    const galleryList = await charactersPage.getGalleryItems();
+
+// Print the count of <li> elements in the .gallery list
+console.log('Number of <li> elements in the gallery:', galleryList.length);
+
+// Loop through the <li> elements and log their text content
+for (let i = 0; i < galleryList.length; i++) {
+  const liText = await galleryList[i].textContent();
+  console.log(`Text content of <li> element ${i + 1}:`, liText);
+}
+ });
 
 })
