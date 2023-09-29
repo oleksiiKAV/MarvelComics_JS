@@ -44,7 +44,7 @@ test.describe('MC4 Header', () => {
     expect(homePage.isLogoVisible).toBeTruthy();
   });
 
-  test("MC4.4 Clicking on the logo shall trigger navigation back to the initial page.", async ({ page }) => {
+  test("MC4.4 Clicking on the logo shall trigger navigation back to the Start page.", async ({ page }) => {
     await homePage.allCharastersButton.click()
     charactersPage.VerifyPageIsOpened()
     await charactersPage.logo.click()
@@ -57,58 +57,86 @@ test.describe('MC4 Header', () => {
   });
 
   test("MC4.6 The search field shall provide an autocomplete feature, suggesting potential matches as users type.", async ({ page }) => {
-    // await homePage.VerifyPageIsOpened()
     await homePage.searchFor('iro')
-   await page.waitForTimeout(4000)
+   await homePage.wait(4000)
+     const datalistOptions = await homePage.getDatalistOptions()  
  
-    const datalistOptions = await page.evaluate(() => {
-      const options = document.querySelectorAll<HTMLOptionElement>('#search-results option');
-      return Array.from(options).map(option => option.value);
-    });
-    // await page.pause() 
-    // console.log(datalistOptions); 
     expect(datalistOptions.length).toBeGreaterThan(0);
   });
 
-  test("MC4.7 When users press the Enter key while in the search field, the application shall open the next page, displaying search results.", async ({ page }) => {
-    // await homePage.VerifyPageIsOpened()
+  test("MC4.7 When users press the Enter key while in the search field on the Start page, the application shall open the Character page, displaying search results.", async ({ page }) => {
     await homePage.searchFor('iro')
-   await page.waitForTimeout(4000)
- 
-    const datalistOptions = await page.evaluate(() => {
-      const options = document.querySelectorAll<HTMLOptionElement>('#search-results option');
-      return Array.from(options).map(option => option.value);
-    });
-    page.keyboard.press('Enter');
-    // console.log(datalistOptions); 
-    charactersPage.VerifyPageIsOpened;
+    await homePage.wait(4000)
 
+     page.keyboard.press('Enter');
+   
+    charactersPage.VerifyPageIsOpened;
+    const galleryList = await charactersPage.getGalleryItems();
+    expect(galleryList.length).toBeGreaterThan(0);
   });
  
 
-  test.only("MC4.8 When users click the search icon while in the search field, the application shall open the next page, displaying search results.", async ({ page }) => {
-     
-    page.keyboard.press('End');
-    
-    console.log(await page.locator(".hero-all-characters-btn").textContent())
-    await homePage.allCharastersButton.click()
-    page.keyboard.press('End');
-    
-    
-    page.keyboard.press('Home');
-    await page.pause()
-    page.keyboard.press('End');
-    // const galleryList = await page.$$('.gallery-item');
-    const galleryList = await charactersPage.getGalleryItems();
+  test("MC4.8 When users click the search icon while in the search field on the Start page, the application shall open the Character page, displaying search results.", async ({ page }) => {
+     await homePage.searchFor('iro')
+     await homePage.wait(4000)
+  
+     homePage.searchIcon.click()
 
+     charactersPage.VerifyPageIsOpened;
+     
+     const galleryList = await charactersPage.getGalleryItems();
+     expect(galleryList.length).toBeGreaterThan(0);
+ });
+
+ test("MC4.9 When users press the Enter key while in the search field on the Character page, the application shall display search results on the page.", async ({ page }) => {
+  charactersPage.visit()
+  await charactersPage.searchFor('iro')
+  await charactersPage.wait(4000)
+
+   page.keyboard.press('Enter');
+ 
+  charactersPage.VerifyPageIsOpened;
+  const galleryList = await charactersPage.getGalleryItems();
+  expect(galleryList.length).toBeGreaterThan(0);
+});
+
+
+test("MC4.10 When users click the search icon while in the search field on the Character page, the application shall display search results on the page.", async ({ page }) => {
+  charactersPage.visit()
+  await charactersPage.searchFor('iro')
+  await charactersPage.wait(4000)
+
+   charactersPage.searchIcon.click()
+
+   charactersPage.VerifyPageIsOpened;
+   
+   const galleryList = await charactersPage.getGalleryItems();
+   expect(galleryList.length).toBeGreaterThan(0);
+});
+
+
+ test.skip("MC4.9 When users click the search icon while in the search field, the application shall open the next page, displaying search results.", async ({ page }) => {
+     
+  
+  
+  console.log(await page.locator(".hero-all-characters-btn").textContent())
+  await homePage.searchFor('iro')
+  await homePage.wait(4000)
+  
+  await homePage.searchIcon.click()
+  charactersPage.VerifyPageIsOpened;
+    //  await charactersPage.page.screenshot({animations: 'disabled', path: 'characterPage.png' })
+  // const galleryList = await page.$$('.gallery-item');
+  const galleryList = await charactersPage.getGalleryItems();
+await page.pause()
 // Print the count of <li> elements in the .gallery list
 console.log('Number of <li> elements in the gallery:', galleryList.length);
 
 // Loop through the <li> elements and log their text content
 for (let i = 0; i < galleryList.length; i++) {
-  const liText = await galleryList[i].textContent();
-  console.log(`Text content of <li> element ${i + 1}:`, liText);
+const liText = await galleryList[i].textContent();
+console.log(`Text content of <li> element ${i + 1}:`, liText);
 }
- });
+});
 
 })

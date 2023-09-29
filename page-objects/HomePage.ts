@@ -21,12 +21,12 @@ export class HomePage  extends AbstractPage {
     this.searchIcon = page.locator('.header-icon')
     this.searchAutocomplete = page.locator('#search-results')
     this.allCharastersButton = page.locator('.hero-all-characters-btn')
-    this.datalistElement =  this.page.locator('search-results')
+    this.datalistElement =  this.page.locator('#search-results')
 
   }
 
   async visit() {
-    await this.page.goto('https://oleksiikav.github.io/MarvelComics_JS/')
+    await this.page.goto('https://oleksiikav.github.io/MarvelComics_JS/index.html')
     // await this.page.goto('http://localhost:5173/')
   }
 
@@ -74,9 +74,10 @@ export class HomePage  extends AbstractPage {
   }
 
   async getDatalistOptions() {
-    return await this.datalistElement.evaluate((datalist) => {
-      const options = datalist.querySelectorAll('option');
+    return await this.page.evaluate(() => {
+      const options = document.querySelectorAll<HTMLOptionElement>('#search-results option');
       return Array.from(options).map(option => option.value);
-    });}
+    });
+  }
  
 }
