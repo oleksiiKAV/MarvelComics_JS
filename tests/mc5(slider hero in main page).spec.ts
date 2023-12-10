@@ -5,7 +5,7 @@ import { CharactersPage } from '../page-objects/CharastersPage'
 
 
 
-test.describe.only('Automatic switch heroies on the Start page', () => {
+test.describe('Automatic switch heroies on the Start page', () => {
   let homePage: HomePage
   let charactersPage: CharactersPage
   let context:any
@@ -24,20 +24,20 @@ test.describe.only('Automatic switch heroies on the Start page', () => {
 
   test('Displays hero cards for "Black Panther," "Spider-Man," and "Hulk"', async ({ page }) => {    
     // Wait for the page to load
-    const heroCards = await page.locator('.hero-slide');
+    const heroCards = await homePage.page.locator('.hero-slide');
+
     expect(heroCards).toHaveCount(3);
 
-    const heroCardTitles = await heroCards.locator('.image-card-character-description .image-card-title').all();
+    const heroCardTitles = await heroCards.locator('.decorate-ellipse-title').all();
     const cardTexts = await Promise.all(heroCardTitles.map(async title => await title.innerText()));    
 
-
-    const expectedHeroNames = ['Black Panther', 'hULK', 'Spider man'];
+    const expectedHeroNames = ['BLACK PANTHER', 'HULK', 'SPIDER MAN'];
     expect(cardTexts).toEqual(expectedHeroNames);
 
     // Additional checks for concise description can be added here
   });
 
-  test.only('MC5.1 "The Start page should display descriptions and images of the heroes Black Panther, Hulk, and Spider-Man, rotating every 3 seconds."', async ({ }) => {
+  test('MC5.1 "The Start page should display descriptions and images of the heroes Black Panther, Hulk, and Spider-Man, rotating every 3 seconds."', async ({ }) => {
    
     homePage.VerifyPageIsOpened
     // Wait for the page to load

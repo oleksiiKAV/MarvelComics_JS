@@ -8,24 +8,34 @@
     "build": "vite build --base=/MarvelComics_JS/",
     "preview": "vite preview",
     "test": "playwright test --headed",
+    "precy-e2e": "rimraf ./cypress/report/mochawesome-report",
+    "cy-e2e": "npm cypress run || npm run postcy-e2e",
+    "postcy-e2e": "npm run merge-reports && npm run generate-htmlreport",
+    "merge-reports": "mochawesome-merge cypress/report/mochawesome-report/*.json > cypress/report/output.json",
+    "generate-htmlreport": "marge cypress/report/output.json --reportDir ./ --inline",
     "test-chrom": "playwright test --project=Chromium --headed"
   },
   "devDependencies": {
+    "@playwright/test": "^1.37.0",
     "glob": "^8.1.0",
-    "vite": "^4.0.0",
-    "@playwright/test": "^1.37.0"
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.3.0",
+    "vite": "^4.0.0"
   },
   "author": "Oleksii Kormilets<oleksii.kav@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "axios": "^1.4.0",
+    "cypress": "^13.3.1",
     "hammerjs": "^2.0.8",
     "lodash.debounce": "^4.0.8",
     "md5": "^2.3.0",
     "notiflix": "^3.2.6",
     "paginationjs": "^2.6.0",
+    "playwright-expect": "^0.1.2",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.2.2",
     "vite-plugin-full-reload": "^1.0.5",
-    "vite-plugin-html-inject": "^1.0.1",
-    "playwright-expect": "^0.1.2"
+    "vite-plugin-html-inject": "^1.0.1"
   }
 }
