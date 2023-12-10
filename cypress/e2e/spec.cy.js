@@ -7,6 +7,8 @@ describe('template spec', () => {
     cy.get('@AllCharacters').click()
     cy.url().should('include','MarvelComics_JS/page-2.html')
     cy.get('.back-home-link').should('be.visible')
+    cy.get('#paginated-list').as('paginated-list')
+    cy.log('paginated-list'.length)
 
   })
 

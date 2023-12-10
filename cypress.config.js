@@ -6,4 +6,14 @@ export default defineConfig({
       // implement node event listeners here
     },
   },
+  "defaultCommandTimeout":5000,
+  "watchForFileChanges":false, //
+  "reporter": "mochawesome",
+ "reporterOptions": {
+   "charts": true,
+   "overwrite": false,
+   "html": false,
+   "json": true,
+   "reportDir": "cypress/report/mochawesome-report"
+  }
 });
