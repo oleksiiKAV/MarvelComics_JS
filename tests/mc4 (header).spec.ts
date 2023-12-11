@@ -115,28 +115,4 @@ test("MC4.10 When users click the search icon while in the search field on the C
 });
 
 
- test.skip("MC4.9 When users click the search icon while in the search field, the application shall open the next page, displaying search results.", async ({ page }) => {
-     
-  
-  
-  console.log(await page.locator(".hero-all-characters-btn").textContent())
-  await homePage.searchFor('iro')
-  await homePage.wait(4000)
-  
-  await homePage.searchIcon.click()
-  charactersPage.VerifyPageIsOpened;
-    //  await charactersPage.page.screenshot({animations: 'disabled', path: 'characterPage.png' })
-  // const galleryList = await page.$$('.gallery-item');
-  const galleryList = await charactersPage.getGalleryItems();
-await page.pause()
-// Print the count of <li> elements in the .gallery list
-console.log('Number of <li> elements in the gallery:', galleryList.length);
-
-// Loop through the <li> elements and log their text content
-for (let i = 0; i < galleryList.length; i++) {
-const liText = await galleryList[i].textContent();
-console.log(`Text content of <li> element ${i + 1}:`, liText);
-}
-});
-
 })

@@ -37,7 +37,7 @@ test.describe('Automatic switch heroies on the Start page', () => {
     // Additional checks for concise description can be added here
   });
 
-  test('MC5.1 "The Start page should display descriptions and images of the heroes Black Panther, Hulk, and Spider-Man, rotating every 3 seconds."', async ({ }) => {
+  test('MC5 "The Start page should display descriptions and images of the heroes Black Panther, Hulk, and Spider-Man, rotating every 3 seconds."', async ({ }) => {
    
     homePage.VerifyPageIsOpened
     // Wait for the page to load
