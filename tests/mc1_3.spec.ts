@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, BrowserContext } from '@playwright/test';
 
 import { HomePage } from '../page-objects/HomePage'
 import { CharactersPage } from '../page-objects/CharastersPage'
@@ -8,7 +8,7 @@ import { CharactersPage } from '../page-objects/CharastersPage'
 test.describe('The application shall have two pages and navigation between them', () => {
   let homePage: HomePage
   let charactersPage: CharactersPage
-  let context
+  let context: BrowserContext
 
   test.beforeEach(async ({ browser }) => {
     context = await browser.newContext();
